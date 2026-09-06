@@ -11,7 +11,7 @@ export class AppController {
   }
 
   @Post()
-  async addGuests(@Body()data: any){
+  async addGuests(@Body() data: any) {
     return await this.appService.addGuests(data);
   }
 

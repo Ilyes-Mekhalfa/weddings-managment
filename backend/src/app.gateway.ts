@@ -6,18 +6,33 @@ import {
 } from '@nestjs/websockets';
 
 import { Server } from 'socket.io';
-
+import { AppService } from './app.service';
+import { GuestStatus } from 'generated/prisma/enums';
 @WebSocketGateway({
   cors: {
-    origin: '*',
+    origin: 'http://localhost:5173',
   },
 })
 export class AppGateway {
   @WebSocketServer()
   server: Server;
 
+  constructor(private appService: AppService) {}
+
   @SubscribeMessage('guest:update')
-  handleGuestUpdate(@MessageBody() data: any) {
-    this.server.emit('guest:update', data);
+  async handleGuestUpdate(
+    @MessageBody()
+    data: {
+      id: number;
+      status: GuestStatus;
+      invitedBy?: string;
+    },
+  ) {
+    const guest = await this.appService.changeStatus(data.id, {
+      status: data.status,
+      invitedBy: data.invitedBy,
+    });
+
+    this.server.emit('guest:updated', guest);
   }
 }

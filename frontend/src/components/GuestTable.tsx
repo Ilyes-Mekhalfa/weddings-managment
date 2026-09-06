@@ -8,14 +8,14 @@ interface GuestTableProps {
 }
 
 const statusLabels: Record<GuestStatus, string> = {
-  pending: "في الانتظار",
-  invited: "تمت الدعوة",
-  rejected: "مرفوض",
+  PENDING: "في الانتظار",
+  INVITED: "تمت الدعوة",
+  REJECTED: "مرفوض",
 };
 
 const typeLabels = {
-  family: "عائلة",
-  friend: "صديق",
+  FAMILY: "عائلة",
+  FRIEND: "صديق",
 };
 
 export default function GuestTable({
@@ -70,7 +70,7 @@ export default function GuestTable({
                   {/* Status */}
                   <td>
                     <select
-                      className={`status-select status-${guest.status}`}
+                      className={`status-select status-${guest.status.toLowerCase()}`}
                       value={guest.status}
                       onChange={(e) =>
                         onStatusChange(
@@ -91,7 +91,7 @@ export default function GuestTable({
 
                   {/* Invited By */}
                   <td>
-                    {guest.status === "invited" ? (
+                    {guest.status === "INVITED" ? (
                       <select
                         className="invited-by-select"
                         value={guest.invitedBy ?? ""}

@@ -1,16 +1,11 @@
-export type GuestType = "family" | "friend";
+export type GuestType = "FAMILY" | "FRIEND";
 
-export type GuestStatus = "pending" | "invited" | "rejected";
+export type GuestStatus = "PENDING" | "INVITED" | "REJECTED";
 
-type inviters = [
-  "إلياس",
-  "محمد",
-  "عبد القادر",
-];
 export interface Person {
   id: number;
   name: string;
   type: GuestType;
   status: GuestStatus;
-  invitedBy?: inviters;
+  invitedBy?: string | null;
 }

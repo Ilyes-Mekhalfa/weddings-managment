@@ -36,9 +36,9 @@ export default function SearchAndFilter({
           }
         >
           <option value="all">الكل</option>
-          <option value="pending">في الانتظار</option>
-          <option value="invited">تمت الدعوة</option>
-          <option value="rejected">مرفوض</option>
+          <option value="PENDING">في الانتظار</option>
+          <option value="INVITED">تمت الدعوة</option>
+          <option value="REJECTED">مرفوض</option>
         </select>
       </div>
     </section>

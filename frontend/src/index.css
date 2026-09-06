@@ -355,6 +355,43 @@ tbody tr:hover {
   color: var(--rejected);
 }
 
+.status-select,
+.invited-by-select {
+  min-width: 132px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.status-select:focus,
+.invited-by-select:focus {
+  box-shadow: 0 0 0 3px rgba(143, 82, 98, 0.12);
+}
+
+.status-select.status-pending {
+  border-color: #e8c77d;
+}
+
+.status-select.status-invited {
+  border-color: #9bc8a9;
+}
+
+.status-select.status-rejected {
+  border-color: #dda0a0;
+}
+
+.invited-by-select {
+  min-width: 150px;
+  border-color: #a9c5da;
+  background: #e9f0f6;
+  color: #466b89;
+}
+
 /* =========================
    Empty State
 ========================= */
