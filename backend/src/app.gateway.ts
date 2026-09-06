@@ -7,10 +7,10 @@ import {
 
 import { Server } from 'socket.io';
 import { AppService } from './app.service';
-import { GuestStatus } from 'generated/prisma/enums';
+import { GuestStatus } from '../generated/prisma/enums';
 @WebSocketGateway({
   cors: {
-    origin: 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL ?? 'http://localhost:5371',
   },
 })
 export class AppGateway {
