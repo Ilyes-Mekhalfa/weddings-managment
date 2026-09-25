@@ -25,3 +25,13 @@ export const updateGuest = async (guestId, updatedData) => {
     console.error("error:", error);
   }
 };
+
+export const addGuest = async (guestData) => {
+  try {
+    const response = await api.post("/guest", guestData);
+    return response.data;
+  } catch (error) {
+    console.error("error adding guest:", error);
+    throw error;
+  }
+};

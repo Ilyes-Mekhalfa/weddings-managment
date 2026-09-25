@@ -7,10 +7,10 @@ import {
 
 import { Server } from 'socket.io';
 import { AppService } from './app.service';
-import { GuestStatus } from './generated/prisma/enums';
+import { GuestStatus, GuestType } from './generated/prisma/enums';
 @WebSocketGateway({
   cors: {
-    origin: process.env.FRONTEND_URL ?? 'http://localhost:5371',
+    origin: '*',
   },
 })
 export class AppGateway {
@@ -18,6 +18,21 @@ export class AppGateway {
   server: Server;
 
   constructor(private appService: AppService) {}
+
+  @SubscribeMessage('guest:add')
+  async handleGuestAdd(
+    @MessageBody()
+    data: {
+      name: string;
+      type: GuestType;
+      status?: GuestStatus;
+      invitedBy?: string;
+    },
+  ) {
+    const guest = await this.appService.addGuest(data);
+    this.server.emit('guest:created', guest);
+    return guest;
+  }
 
   @SubscribeMessage('guest:update')
   async handleGuestUpdate(

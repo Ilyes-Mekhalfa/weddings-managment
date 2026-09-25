@@ -9,3 +9,10 @@ export interface Person {
   status: GuestStatus;
   invitedBy?: string | null;
 }
+
+export interface CreateGuestInput {
+  name: string;
+  type: GuestType;
+  status?: GuestStatus;
+  invitedBy?: string | null;
+}

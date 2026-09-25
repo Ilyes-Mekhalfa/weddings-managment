@@ -499,4 +499,224 @@ tbody tr:hover {
   td {
     padding: 13px 14px;
   }
+
+  .form-fields-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .submit-guest-btn,
+  .cancel-guest-btn {
+    width: 100%;
+  }
+}
+
+/* =========================
+   Add Guest Section
+========================= */
+
+.add-guest-wrapper {
+  margin-bottom: 20px;
+}
+
+.add-guest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(143, 82, 98, 0.2);
+  transition: all 0.2s ease;
+}
+
+.add-guest-btn:hover {
+  background: #7a4352;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(143, 82, 98, 0.28);
+}
+
+.add-guest-btn.active {
+  background: #6e3947;
+}
+
+.btn-icon {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.add-guest-form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-top: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  animation: slideFadeIn 0.25s ease-out;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header {
+  margin-bottom: 18px;
+}
+
+.form-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-header p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+.form-fields-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.required-star {
+  color: var(--rejected);
+}
+
+.form-field input,
+.form-field select {
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 0 14px;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(143, 82, 98, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.submit-guest-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--invited);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  height: 44px;
+  padding: 0 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(61, 128, 88, 0.2);
+}
+
+.submit-guest-btn:hover:not(:disabled) {
+  background: #336e4b;
+  transform: translateY(-1px);
+}
+
+.submit-guest-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-guest-btn {
+  background: #f5f3f1;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  height: 44px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cancel-guest-btn:hover:not(:disabled) {
+  background: #eae6e3;
+  color: var(--text);
+}
+
+.form-alert {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.error-alert {
+  background: var(--rejected-bg);
+  color: var(--rejected);
+  border: 1px solid #f3cfcf;
+}
+
+.success-alert {
+  background: var(--invited-bg);
+  color: var(--invited);
+  border: 1px solid #cce8d4;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
